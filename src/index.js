@@ -5,7 +5,6 @@ import YTSearch from 'youtube-api-search'
 import SearchBar from './components/search_bar'
 import VideoList from './components/video_list'
 import VideoDetail from './components/video_detail'
-const API_KEY = process.env.API_KEY
 
 class App extends Component {
   constructor(props) {
@@ -21,14 +20,14 @@ class App extends Component {
   // ^^ in the constructor, we still want to do a default initial search for all new instances of the App
 
   videoSearch(term) {
-    YTSearch({key: API_KEY, term}, videos => {
+    YTSearch({key: process.env.API_KEY, term}, videos => {
       this.setState({
         videos,
         selectedVideo: videos[0]
       })
     })
     // configuration otions followed by a callback function
-    YTSearch({ key: API_KEY, term: 'surfboards'}, function(data) {
+    YTSearch({ key: process.env.API_KEY, term: 'surfboards'}, function(data) {
       console.log(data);
     });
   }
