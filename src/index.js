@@ -32,7 +32,7 @@ class App extends Component {
       console.log(data);
     });
   }
-  // takes the search term and creates a new YTSsearch, takes one arg, the search string
+  // takes the search term and creates a new YTSsearch, takes one arg, the search string, callback function sets state
 
   render() {
     const videoSearch = _.debounce((term) =>  { this.videoSearch(term) }, 500)
