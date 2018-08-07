@@ -5,7 +5,7 @@ import YTSearch from 'youtube-api-search'
 import SearchBar from './components/search_bar'
 import VideoList from './components/video_list'
 import VideoDetail from './components/video_detail'
-const API_KEY = 'AIzaSyA0__k3K5FM8XBradU69m-epzO-B-VVLWA'
+const API_KEY = process.env.API_KEY
 
 class App extends Component {
   constructor(props) {
@@ -27,10 +27,6 @@ class App extends Component {
         selectedVideo: videos[0]
       })
     })
-    // configuration otions followed by a callback function
-    YTSearch({ key: API_KEY, term: 'surfboards'}, function(data) {
-      console.log(data);
-    });
   }
   // takes the search term and creates a new YTSsearch, takes one arg, the search string
 
