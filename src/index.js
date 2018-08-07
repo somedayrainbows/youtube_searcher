@@ -7,6 +7,11 @@ import VideoList from './components/video_list'
 import VideoDetail from './components/video_detail'
 const API_KEY = 'AIzaSyA0__k3K5FM8XBradU69m-epzO-B-VVLWA'
 
+// configuration otions followed by a callback function
+YTSearch({ key: API_KEY, term: 'surfboards'}, function(data) {
+  console.log(data);
+});
+
 class App extends Component {
   constructor(props) {
     super(props)
