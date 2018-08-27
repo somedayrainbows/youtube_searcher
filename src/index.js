@@ -12,12 +12,11 @@ class App extends Component {
 
     this.state = {
       videos: [],
-      selectedVideo: null
+      selectedVideo: null 
     }
 
     this.videoSearch('surfboards')
   }
-  // ^^ in the constructor, we still want to do a default initial search for all new instances of the App
 
   videoSearch(term) {
     YTSearch({key: process.env.API_KEY, term}, videos => {
