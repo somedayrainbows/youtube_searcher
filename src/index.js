@@ -12,7 +12,7 @@ class App extends Component {
 
     this.state = {
       videos: [],
-      selectedVideo: null 
+      selectedVideo: null
     }
 
     this.videoSearch('surfboards')
@@ -25,10 +25,6 @@ class App extends Component {
         selectedVideo: videos[0]
       })
     })
-    // configuration otions followed by a callback function
-    YTSearch({ key: process.env.API_KEY, term: 'surfboards'}, function(data) {
-      console.log(data);
-    });
   }
   // takes the search term and creates a new YTSsearch, takes one arg, the search string, callback function sets state
 
@@ -40,7 +36,9 @@ class App extends Component {
         <SearchBar onSearchTermChange={videoSearch} />
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
-          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+          onVideoSelect={selectedVideo =>
+            this.setState({selectedVideo})
+          } //updates app state with the new state, triggered by the user clicking the <li> in video list item
           videos={this.state.videos} />
       </div>
     )
