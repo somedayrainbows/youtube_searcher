@@ -17,7 +17,6 @@ class App extends Component {
 
     this.videoSearch('surfboards')
   }
-  // ^^ in the constructor, we still want to do a default initial search for all new instances of the App
 
   videoSearch(term) {
     YTSearch({key: process.env.API_KEY, term}, videos => {
@@ -26,22 +25,21 @@ class App extends Component {
         selectedVideo: videos[0]
       })
     })
-    // configuration otions followed by a callback function
-    YTSearch({ key: process.env.API_KEY, term: 'surfboards'}, function(data) {
-      console.log(data);
-    });
   }
   // takes the search term and creates a new YTSsearch, takes one arg, the search string, callback function sets state
 
   render() {
-    const videoSearch = _.debounce((term) =>  { this.videoSearch(term) }, 500)
-    // debounce returns a new function that can only be called every 300 ms - can call it multiple times, but it won't call until 300 ms
+    const videoSearch = _.debounce(term =>  { this.videoSearch(term) }, 500)
+    // debounce is a lodash (hence the underscore) library options that throttles how often a new function is called: it returns a new function that can only be called every 500 ms (second argument) - can call it multiple times, but it won't call until 500 ms
     return (
       <div>
         <SearchBar onSearchTermChange={videoSearch} />
+        {/* italicized props are passed down, and they are set equal to data available in/to the current component */}
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
-          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+          onVideoSelect={selectedVideo =>
+            this.setState({selectedVideo})
+          } //updates app state with the new state, triggered by the user clicking the <li> in video list item
           videos={this.state.videos} />
       </div>
     )

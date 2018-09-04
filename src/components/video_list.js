@@ -6,6 +6,7 @@ const VideoList = ({videos, onVideoSelect}) => {
     return (
       <VideoListItem
         onVideoSelect={onVideoSelect}
+        // callback function that was passed from App, passing it on down to video list item
         key={video.etag}
         video={video} />
     ) // passes in the video as a property

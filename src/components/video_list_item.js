@@ -1,7 +1,7 @@
 import React from 'react'
 
 const VideoListItem = ({video, onVideoSelect}) => {
-  // const video = props.video // {video} is the same, it says "give me the video from props"
+  // const video = props.video *or* {video} is the same, it says "give me the video from props"
   const imageUrl = video.snippet.thumbnails.default.url
 // when a user clicks on the LI below, it's an event where user is selected the video to be able to play it next
   return (
