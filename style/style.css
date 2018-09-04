@@ -3,6 +3,11 @@
   text-align: center;
 }
 
+.title {
+  font-size: 16px;
+  font-family: cursive;
+}
+
 .search-bar input {
   width: 75%
 }
